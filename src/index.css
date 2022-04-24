@@ -11,3 +11,71 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#likearea h4{
+  border:none;
+  padding: 0px 10px;
+  border-radius: 50%;
+  color: rgb(51, 52, 53);
+  /* background-color: rgb(255, 11, 206); */
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#likearea h4:hover{
+  color: red;
+  background-color: aliceblue;
+  
+}
+/* admin panel profile pic */
+#profilepic{
+  border: 5px solid rgb(36, 36, 35);
+  border-radius: 50%;
+  -webkit-box-shadow: 2px 3px 94px 15px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 3px 94px 15px rgba(0,0,0,0.75);
+box-shadow: 2px 3px 94px 15px rgba(0,0,0,0.75);
+}
+#profilepic img{
+  height: 25rem;
+  width: 25rem;
+  border-radius: 50% !important;
+}
+
+.admininfoc{
+  -webkit-box-shadow: 13px 15px 68px -10px rgba(0,0,0,0.75);
+-moz-box-shadow: 13px 15px 68px -10px rgba(0,0,0,0.75);
+box-shadow: 13px 15px 68px -10px rgba(0,0,0,0.75);
+
+}
+/* for adminpanel buttons  */
+.button:hover{
+  font-weight: 500 !important;
+  color: rgb(39, 239, 73) !important;
+}
+.button-bold-custom{
+  font-weight: 500 !important;
+  color: rgb(39, 239, 73) !important;
+}
+
+/* table that is for the posts */
+.tableforposts{
+  webkit-box-shadow: 8px 9px 40px -10px rgba(0,0,0,0.75);
+  -moz-box-shadow: 8px 9px 40px -10px rgba(0,0,0,0.75);
+  box-shadow: 8px 9px 40px -10px rgba(0,0,0,0.75);
+}
+.psts form{
+  border-radius: 30px !important;
+}
+
+/* styling for the buttons on the posts table : update and remove button */
+.opeartionbtns{
+  transition: all 0.3s;
+}
+.opeartionbtns:hover{
+  color: blueviolet;
+  transform: scale(1.3);
+}
+
+/* toggle like */
+.liked {
+  color:red;
+}
