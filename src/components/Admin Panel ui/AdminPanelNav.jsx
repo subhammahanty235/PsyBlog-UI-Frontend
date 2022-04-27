@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import AdminState from "../../context/posts/AdminState";
 const AdminPanelNav = () => {
     const location = useLocation()
     return (<>
@@ -7,9 +8,12 @@ const AdminPanelNav = () => {
             <li class="nav-item">
                 <Link class={`nav-link button ${location.pathname=='/adminpanel' ?'button-bold-custom':" "}`} aria-current="page" to="/adminpanel">My Account</Link>
             </li>
+            
+
             <li class="nav-item">
                 <Link class={`nav-link button ${location.pathname=='/adminpanel/posts' ?'button-bold-custom':" "}`} to="/adminpanel/posts">Posts</Link>
             </li>
+            
             
         </ul>
     </>)

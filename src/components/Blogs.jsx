@@ -1,36 +1,67 @@
-import React, { useContext, useEffect ,useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import postcontext from "../context/posts/postcontext";
 import Blogcard from "./Blogcard";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faHeart ,faHeartCirclePlus} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart, faHeartCirclePlus } from '@fortawesome/free-solid-svg-icons'
 const Blogs = () => {
     const context = useContext(postcontext);
-    const { posts, getPosts ,likepost ,dislikePost} = context;
+    const { posts, getPosts, likepost, dislikePost  } = context;
     useEffect(() => {
-        getPosts()
+       getPosts()
+      
         console.log("started")
+        
 
     }, [])
     // code to send post data to the modal
     const ref = useRef(null);
     const refclose = useRef(null);
-    const [bloginfo , setBloginfo] = useState({id:"" ,title:"" , description:"" , uploadedBy:"" ,})
-    const readBlog = (blog)=>{
+    const [bloginfo, setBloginfo] = useState({ id: "", title: "", description: "", uploadedBy: "", })
+    const readBlog = (blog) => {
         ref.current.click();
-        setBloginfo({id:blog._id,title:blog.title , description:blog.description , uploadedBy:blog.uploadedBy })
+        setBloginfo({ id: blog._id, title: blog.title, description: blog.description, uploadedBy: blog.uploadedBy })
     }
     // like and dislike logic 
-    const [liked , setliked] = useState(false)
-    const togglelike =()=>{
-        if(liked ==false){
-            likepost(bloginfo.id)
-            setliked(true)
-        }
-        else{
-            dislikePost(bloginfo.id);
-            setliked(false);
+    // const [liked , setliked] = useState(false)
+    // const togglelike =()=>{
+    //     if(liked ==false){
+    //         likepost(bloginfo.id)
+    //         setliked(true)
+    //     }
+    //     else{
+    //         dislikePost(bloginfo.id);
+    //         setliked(false);
+    //     }
+    // }
+    //logic:2 like and dislike function 
+    //for later --->
+    const [liked, setliked] = useState(false);
+    const [alreadyLiked, setAlreadyl] = useState(false);
+    const checkliked=()=>{
+        if(likepost(bloginfo.id)===true){
+            setliked(true);
+            console.log("already liked ")
         }
     }
+    useEffect(()=>{
+        checkliked();
+        
+    },[])
+    const togglelike = () => {
+
+        if (likepost(bloginfo.id) === true) {
+            console.log("already liked")
+            setliked(true);
+
+        }
+        else {
+            likepost(bloginfo.id);
+            setliked(true);
+            console.log("liking")
+        }
+    }
+    //<---
+
     return (
         <>
             {/* //modal to read a specific post */}
@@ -53,8 +84,8 @@ const Blogs = () => {
                                 <p className="text-center">{bloginfo.description}</p>
                                 <hr />
                                 <div id="likearea" className="d-flex justify-content-center align-items-center" >
-                                {/* <i className="fa-solid fa-circle-heart">w</i> */}
-                                   <h4><FontAwesomeIcon icon={faHeart} onClick={togglelike} className={`${liked===true ? 'liked':" "}`}/></h4> 
+                                    {/* <i className="fa-solid fa-circle-heart">w</i> */}
+                                    <h4><FontAwesomeIcon icon={faHeart} onClick={togglelike} className={`${liked === true ? 'liked' : " "}`} /></h4>
                                     {/* <p>Likes</p> */}
                                 </div>
                             </div>
@@ -76,11 +107,11 @@ const Blogs = () => {
                 </div>
                 <div className="d-flex mt-5 flex-wrap justify-content-around">
 
-                {
-                    posts.map((post) => {
-                        return <Blogcard key={post._id} readBlog={readBlog} post={post} />
-                    })
-                }
+                    {
+                        posts.map((post) => {
+                            return <Blogcard key={post._id} readBlog={readBlog} post={post} />
+                        })
+                    }
                 </div>
             </div>
         </>

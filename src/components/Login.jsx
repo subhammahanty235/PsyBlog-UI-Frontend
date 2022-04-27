@@ -1,5 +1,5 @@
 import React, { useState  } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
     const [loginCred , setloginCred] = useState({email:"", password:""});
     const navigate = useNavigate()
@@ -39,7 +39,7 @@ const Login = () => {
                     </div>
                     <div className="d-flex justify-content-between">
                     <button type="submit" class="btn btn-primary mx-3" onClick={loginclick}>Log in</button>
-                    <button type="button" class="btn btn-primary">Sign Up</button>
+                    <Link type="button" class="btn btn-primary" to='/signup'>Sign Up</Link>
 
                     </div>
                 </form>

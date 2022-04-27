@@ -12,8 +12,8 @@ code {
     monospace;
 }
 
-#likearea h4{
-  border:none;
+#likearea h4 {
+  border: none;
   padding: 0px 10px;
   border-radius: 50%;
   color: rgb(51, 52, 53);
@@ -21,61 +21,134 @@ code {
   cursor: pointer;
   transition: all 0.3s;
 }
-#likearea h4:hover{
+
+#likearea h4:hover {
   color: red;
   background-color: aliceblue;
-  
+
 }
+
 /* admin panel profile pic */
-#profilepic{
+#profilepic {
   border: 5px solid rgb(36, 36, 35);
   border-radius: 50%;
-  -webkit-box-shadow: 2px 3px 94px 15px rgba(0,0,0,0.75);
--moz-box-shadow: 2px 3px 94px 15px rgba(0,0,0,0.75);
-box-shadow: 2px 3px 94px 15px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 2px 3px 94px 15px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 3px 94px 15px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 3px 94px 15px rgba(0, 0, 0, 0.75);
 }
-#profilepic img{
+
+#profilepic img {
   height: 25rem;
   width: 25rem;
   border-radius: 50% !important;
 }
 
-.admininfoc{
-  -webkit-box-shadow: 13px 15px 68px -10px rgba(0,0,0,0.75);
--moz-box-shadow: 13px 15px 68px -10px rgba(0,0,0,0.75);
-box-shadow: 13px 15px 68px -10px rgba(0,0,0,0.75);
+.admininfoc {
+  -webkit-box-shadow: 13px 15px 68px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 13px 15px 68px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 13px 15px 68px -10px rgba(0, 0, 0, 0.75);
 
 }
+
 /* for adminpanel buttons  */
-.button:hover{
+.button:hover {
   font-weight: 500 !important;
   color: rgb(39, 239, 73) !important;
 }
-.button-bold-custom{
+
+.button-bold-custom {
   font-weight: 500 !important;
   color: rgb(39, 239, 73) !important;
 }
 
 /* table that is for the posts */
-.tableforposts{
-  webkit-box-shadow: 8px 9px 40px -10px rgba(0,0,0,0.75);
-  -moz-box-shadow: 8px 9px 40px -10px rgba(0,0,0,0.75);
-  box-shadow: 8px 9px 40px -10px rgba(0,0,0,0.75);
+.tableforposts {
+  webkit-box-shadow: 8px 9px 40px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 8px 9px 40px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 8px 9px 40px -10px rgba(0, 0, 0, 0.75);
 }
-.psts form{
+
+.psts form {
   border-radius: 30px !important;
 }
 
 /* styling for the buttons on the posts table : update and remove button */
-.opeartionbtns{
+.opeartionbtns {
   transition: all 0.3s;
 }
-.opeartionbtns:hover{
+
+.opeartionbtns:hover {
   color: blueviolet;
   transform: scale(1.3);
 }
 
 /* toggle like */
 .liked {
-  color:red;
+  color: red;
+}
+
+#indicator {
+  display: inline;
+  width: 30px !important;
+  height: 10px !important;
+  color: blueviolet;
+  background-color: aqua;
+  border: 2px solid black;
+  /* border-radius: 50%; */
+}
+
+.dot-green {
+  height: 15px;
+  width: 15px;
+  text-align: center;
+  margin: 0px 30px;
+  background-color: rgba(17, 225, 101, 0.69);
+  box-shadow: 10px 3px 50px 21px rgba(17, 225, 101, 0.69);
+  -webkit-box-shadow: 10px 3px 50px 21px rgba(17, 225, 101, 0.69);
+  -moz-box-shadow: 10px 3px 50px 21px rgba(17, 225, 101, 0.69);
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.dot-red {
+  height: 15px;
+  width: 15px;
+  text-align: center;
+  margin: 0px 30px;
+  background-color: rgba(225, 17, 66, 0.69);
+  box-shadow: 10px 3px 50px 21px rgba(225, 17, 66, 0.69);
+  -webkit-box-shadow: 10px 3px 50px 21px rgba(225, 17, 66, 0.69);
+  -moz-box-shadow: 10px 3px 50px 21px rgba(225, 17, 66, 0.69);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* special styling for admin in the navbar */
+.adminname
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #7d7b83 0%,
+    #a49dab 29%,
+    #1d1c1c 67%,
+    #232321 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 10s linear infinite;
+  
+  
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }

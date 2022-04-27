@@ -5,7 +5,7 @@ import {faUserCircle} from '@fortawesome/free-solid-svg-icons'
 import AddPost from "./AddPost";
 const Navbar = () => {
     const location = useLocation()
-    const [details, setdetails] = useState({ username: "", email: "" })
+    const [details, setdetails] = useState({ username: "", email: "" ,adminaccess:"" })
     //function to get user details after login
 
     const getdetails = async (token) => {
@@ -18,7 +18,7 @@ const Navbar = () => {
         })
         const data =await responce.json();
         localStorage.setItem('psyblog_user_name' , data.name)
-        setdetails({ username: data.name, email: data.email })
+        setdetails({ username: data.name, email: data.email ,adminaccess:data.adminaccess })
     }
     const [tokenF , setTokenf] = useState(false)
     const settk = ()=>{
@@ -26,10 +26,10 @@ const Navbar = () => {
         else setTokenf(true);
     }
     useEffect(() => {
-        getdetails(localStorage.getItem('psyblog_api_auth_token'))
         settk()
+        getdetails(localStorage.getItem('psyblog_api_auth_token'))
         console.log(details.username)
-    }, [])
+    },)
     const logout = ()=>{
         localStorage.removeItem('psyblog_api_auth_token')
         localStorage.removeItem('psyblog_user_name')
@@ -58,9 +58,9 @@ const Navbar = () => {
                         {/* dropdown for user details and logout  */}
                         
                         <li className={`nav-item d-flex flex-wrap align-items-center  ${tokenF === false ? "d-none" : "d-block"} `}>
-                            <h5 className="text-white text-center mx-3"><FontAwesomeIcon icon={faUserCircle} className="mx-2"/>{details.username}</h5>
-                            <Link to={'/addpost'}  className={`btn btn-sm btn-outline-success ${location.pathname === '/addpost'?'d-none':'d-block'}`}>Add Post</Link>
-                            <button className="btn btn-sm btn-outline-danger" onClick={logout}>Log out</button>
+                            <h5 className={`text-center mx-3 ${details.adminaccess===true? "adminname" : "text-white"}`}><Link to='/adminpanel' className={`${details.adminaccess=== true ?" ":"d-none"}`}><FontAwesomeIcon icon={faUserCircle} className={`mx-2`}/></Link>{details.username}</h5>
+                            <Link to={'/addpost'}  className={`btn btn-sm btn-outline-success ${details.adminaccess=== true ?"d-block":"d-none"} ${location.pathname === '/addpost'?'d-none':'d-block'}`}>Add Post</Link>
+                            <button className="btn btn-sm btn-outline-danger mx-2" onClick={logout}>Log out</button>
                         
                         </li>
                         {/* <form className="d-flex">
